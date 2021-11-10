@@ -48,7 +48,7 @@ app.get("/cheese", async (req, res) => {
 });
 
 // create route
-app.get("/cheese", async (req, res) => {
+app.post("/cheese", async (req, res) => {
   try {
     res.json(await Cheese.create(req.body));
   } catch (error) {
@@ -57,7 +57,7 @@ app.get("/cheese", async (req, res) => {
 });
 
 // update route
-app.get("/cheese/:id", async (req, res) => {
+app.put("/cheese/:id", async (req, res) => {
   try {
     res.json(await Cheese.findByIdAndUpdate(req.params.id, req.body, { new: true }));
   } catch (error) {
@@ -66,7 +66,7 @@ app.get("/cheese/:id", async (req, res) => {
 });
 
 // destroy route
-app.get("/cheese/:id", async (req, res) => {
+app.delete("/cheese/:id", async (req, res) => {
   try {
     res.json(await Cheese.findByIdAndRemove(req.params.id));
   } catch (error) {
